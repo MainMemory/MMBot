@@ -9,7 +9,7 @@ namespace MMBotiTunes
         public iTunesModule() { }
 
         public override void Shutdown() { }
-        /*private iTunesLib.iTunesApp App;
+        private iTunesLib.iTunesApp App;
 
         public bool GetApp(IRC IrcObject, string channel)
         {
@@ -90,6 +90,6 @@ namespace MMBotiTunes
             if (!GetApp(IrcObject, channel)) return;
             App.PreviousTrack();
             ReleaseApp();
-        }*/
+        }
 	}
 }

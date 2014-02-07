@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BotModule xmlns="http://localhost" className="MMBotMDHacking.MDHackingModule" name="MDHacking">
+  <CommandList>
+    <BotCommand name="asm68k" functionName="Asm68kCommand" cmdMinLength="1" separateThread="true">
+      <HelpText>
+        <![CDATA[Syntax: asm68k <u>instruction<u>
+Returns the hex code for the specified <u>instruction<u>.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="vdpcalc" functionName="VdpcalcCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: vdpcalc <u>type<u> <u>mode<u> <u>address<u>
+Returns a hex version of the VDP command. <u>type<u> can be vram, vsram, or cram; <u>mode<u> can be read, write or dma; <u>address<u> is the hexadecimal address.
+Syntax: vdpcalc <u>command<u>
+Converts a VDP <u>command<u> into a human-readable format.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="vdp" functionName="VdpcalcCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: vdp <u>type<u> <u>mode<u> <u>address<u>
+Returns a hex version of the VDP command. <u>type<u> can be vram, vsram, or cram; <u>mode<u> can be read, write or dma; <u>address<u> is the hexadecimal address.
+Syntax: vdp <u>command<u>
+Converts a VDP <u>command<u> into a human-readable format.]]>
+      </HelpText>
+    </BotCommand>
+  </CommandList>
+</BotModule>

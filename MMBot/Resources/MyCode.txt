@@ -1,0 +1,11 @@
+Imports Microsoft.VisualBasic, System, MMBot
+
+Public Class MMBotCodeClass
+    Private Shared isRunning As Boolean = False
+    Public Shared Function CustomCode(ByVal network As IRC, ByVal channel as IRCChannel) As Object
+        If isRunning Then Return Nothing
+        isRunning = True
+'CODE GOES HERE
+        Return "Done"
+    End Function
+End Class

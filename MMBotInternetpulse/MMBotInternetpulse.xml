@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BotModule xmlns="http://localhost" className="MMBotInternetpulse.InternetpulseModule" name="Internet Health Report">
+  <CommandList>
+    <BotCommand name="nethealth" functionName="InternetpulseCommand">
+      <HelpText><![CDATA[Returns the status of Tier 1 ISPs.]]></HelpText>
+    </BotCommand>
+  </CommandList>
+</BotModule>

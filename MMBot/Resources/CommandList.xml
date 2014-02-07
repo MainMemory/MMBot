@@ -1,0 +1,766 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CommandList xmlns="http://localhost"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://localhost CommandList.xsd">
+  <BotCommand name="help" functionName="HelpCommand">
+    <HelpText>
+      <![CDATA[Syntax: help <u>command<u>
+Displays help for a <u>command<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="nick" accessLevel="BotOp" functionName="NickCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: nick <u>newNick<u>
+Changes the bot's nick to <u>newNick<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="ban" accessLevel="BotOp" functionName="BanCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: ban {<u>hostmask<u> | <u>nick<u>}
+Adds a specified hostmask or the specified user's hostmask to the ban list.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="banlist" functionName="BanlistCommand">
+    <HelpText><![CDATA[Display the list of banned users.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="unban" accessLevel="BotOp" functionName="UnbanCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: unban {<u>hostmask<u> | <u>nick<u>}
+Removes a specified hostmask or the specified user's hostmask from the ban list.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="ignore" accessLevel="BotOp" functionName="IgnoreCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: ignore {<u>hostmask<u> | <u>nick<u>}
+Adds a specified hostmask or the specified user's hostmask to the ignore list.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="ignorelist" functionName="IgnorelistCommand">
+    <HelpText><![CDATA[Display the list of ignored users.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="unignore" accessLevel="BotOp" functionName="UnignoreCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: unignore {<u>hostmask<u> | <u>nick<u>}
+Removes a specified hostmask or the specified user's hostmask from the ignore list.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="accesslevel" accessLevel="Normal" functionName="AccesslevelCommand" cmdMinLength="1">
+    <HelpText><![CDATA[Syntax: accesslevel <u>command<u>
+Displays the access level required to use <u>command<u> on the current channel.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="setaccesslevel" accessLevel="Owner" functionName="SetaccesslevelCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: setaccesslevel <u>command<u> {<u>level<u> | reset}
+Sets the access level for the specified <u>command<u> to <u>level<u>, or resets it to the default.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="vop" accessLevel="Halfop" functionName="null" cmdMinLength="-1">
+    <HelpText><![CDATA[Manages the channel's vop list.]]></HelpText>
+    <BotCommand name="add" accessLevel="Halfop" functionName="VopAddCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: vop add {<u>hostmask<u> | <u>nick<u>}
+Adds a specified hostmask or the specified user's hostmask to the vop list.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="del" accessLevel="Halfop" functionName="VopDelCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: vop del {<u>hostmask<u> | <u>nick<u>}
+Removes a specified hostmask or the specified user's hostmask from the vop list.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="list" functionName="VopListCommand">
+      <HelpText>
+        <![CDATA[Syntax: vop list
+Displays the channel vop list.]]>
+      </HelpText>
+    </BotCommand>
+  </BotCommand>
+  <BotCommand name="hop" accessLevel="Operator" functionName="null" cmdMinLength="-1">
+    <HelpText><![CDATA[Manages the channel's hop list.]]></HelpText>
+    <BotCommand name="add" accessLevel="Operator" functionName="HopAddCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: hop add {<u>hostmask<u> | <u>nick<u>}
+Adds a specified hostmask or the specified user's hostmask to the hop list.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="del" accessLevel="Operator" functionName="HopDelCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: hop del {<u>hostmask<u> | <u>nick<u>}
+Removes a specified hostmask or the specified user's hostmask from the hop list.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="list" functionName="HopListCommand">
+      <HelpText>
+        <![CDATA[Syntax: hop list
+Displays the channel hop list.]]>
+      </HelpText>
+    </BotCommand>
+  </BotCommand>
+  <BotCommand name="aop" accessLevel="Admin" functionName="null" cmdMinLength="-1">
+    <HelpText><![CDATA[Manages the channel's aop list.]]></HelpText>
+    <BotCommand name="add" accessLevel="Admin" functionName="AopAddCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: aop add {<u>hostmask<u> | <u>nick<u>}
+Adds a specified hostmask or the specified user's hostmask to the aop list.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="del" accessLevel="Admin" functionName="AopDelCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: aop del {<u>hostmask<u> | <u>nick<u>}
+Removes a specified hostmask or the specified user's hostmask from the aop list.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="list" functionName="AopListCommand">
+      <HelpText>
+        <![CDATA[Syntax: aop list
+Displays the channel aop list.]]>
+      </HelpText>
+    </BotCommand>
+  </BotCommand>
+  <BotCommand name="feed" accessLevel="Admin" functionName="null" cmdMinLength="-1">
+    <HelpText><![CDATA[Manages the channel's feed list.]]></HelpText>
+    <BotCommand name="add" accessLevel="Admin" functionName="FeedAddCommand" cmdMinLength="1" separateThread="true">
+      <HelpText>
+        <![CDATA[Syntax: feed add <u>url<u>
+Adds an RSS or Atom feed to the feed list.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="del" accessLevel="Admin" functionName="FeedDelCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: feed del {<u>url<u> | <u>title<u>}
+Removes the feed with the specified <u>url<u> or <u>title<u> from the feed list.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="reset" accessLevel="Admin" functionName="FeedResetCommand" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: feed reset {<u>url<u> | <u>title<u>}
+Resets the title and last update time for the feed with the specified <u>url<u> or <u>title<u>.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="list" functionName="FeedListCommand">
+      <HelpText>
+        <![CDATA[Syntax: feed list
+Displays the channel feed list.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="interval" functionName="FeedIntervalCommand">
+      <HelpText>
+        <![CDATA[Syntax: feed interval
+Displays the feed update timer's current interval.
+Syntax: feed interval <u>timespan<u>
+Sets the feed update timer interval to the specified <u>timespan<u>. BotOp only.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="last" functionName="FeedLastCommand" cmdMinLength="1" separateThread="true">
+      <HelpText>
+        <![CDATA[Syntax: feed last {<u>url<u> | <u>title<u>}
+Displays the last entry in the feed with the specified <u>url<u> or <u>title<u>.]]>
+      </HelpText>
+    </BotCommand>
+  </BotCommand>
+  <BotCommand name="linkcheck" functionName="LinkcheckCommand">
+    <HelpText>
+      <![CDATA[Syntax: linkcheck
+Displays the linkchecker's current setting for the channel.
+Syntax: linkcheck {off | titleonly | on}
+Sets the linkchecker mode for the current channel. Admin access required.
+Off disables linkchecking; TitleOnly displays only the title of "text/html" type links, and full info for everything else; and On displays full info for everything.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="linkinfo" functionName="LinkinfoCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: linkinfo <u>url<u>
+Displays information about the given <u>url<u>, such as the MIME type, the size (if specified by the server), the time it was updated (if specified), the title for HTML documents, and a 50 character sample for all other text documents.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="calc" functionName="CalcCommand" cmdMinLength="1" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: calc [/base <u>base<u>] <u>expression<u>
+Calculates the value of <u>expression<u> by using it in a C# expression.
+/base <u>base<u> specifies a base to display the result in (defaults to base 10).
+<irc>For more information, including a list of functions, see the help link above.</irc>
+<web>All classes in mscorlib are available, however the result must be one of the primitive types or a type that can be converted to double, and cannot require any security access.
+
+Constants:
+
+e: Euler's constant.
+infinity: the floating-point Infinity value.
+nan: the floating-point Not A Number value.
+pi: the ratio of the circumference of a circle to its diameter.
+
+Functions:
+
+abs(<u>number<u>): returns the absolute value of <u>number<u>.
+acos(<u>number<u>): returns the angle whose cosine is the specified <u>number<u>.
+asin(<u>number<u>): returns the angle whose sine is the specified <u>number<u>.
+atan(<u>number<u>): returns the angle whose tangent is the specified <u>number<u>.
+atan2(<u>y<u>, <u>x<u>): returns the angle whose tangent is the quotient of two specified numbers.
+avg(<u>numbers<u>): returns the average of a series of <u>numbers<u>.
+bigMul(<u>a<u>, <u>b<u>): produces the full product of two 32-bit numbers.
+ceiling(<u>number<u>): returns the smallest integral value that is greater than or equal to the specified <u>number<u>.
+cos(<u>angle<u>): returns the cosine of the specified <u>angle<u>.
+cosh(<u>angle<u>): returns the hyperbolic cosine of the specified <u>angle<u>.
+exp(<u>power<u>): returns <b>e<b> raised to the specified <u>power<u>.
+floor(<u>number<u>): returns the largest integer less than or equal to the specified <u>number<u>.
+ieeeremainder(<u>dividend<u>, <u>divisor<u>): returns the remainder resulting from the division of a specified number by another specified number.
+ln(<u>number<u>): returns the natural (base <b>e<b>) logarithm of a specified <u>number<u>.
+log(<u>number<u>): returns the base 10 logarithm of a specified <u>number<u>.
+log(<u>number<u>, <u>base<u>): returns the logarithm of a specified <u>number<u> in a specified <u>base<u>.
+max(<u>numbers<u>): returns the largest of a series of <u>numbers<u>.
+min(<u>numbers<u>): returns the smallest of a series of <u>numbers<u>.
+pow(<u>number<u>, <u>power<u>): returns a specified <u>number<u> raised to the specified <u>power<u>.
+rand(): returns a nonnegative random number.
+rand(<u>maximum<u>): returns a nonnegative random number less than the specified <u>maximum<u>.
+rand(<u>minimum<u>, <u>maximum<u>): returns a nonnegative random number greater than or equal to the specified <u>minimum<u> and less than the specified <u>maximum<u>.
+randf(): returns a random fractional number between 0.0 and 1.0.
+round(<u>number<u>): rounds a <u>number<u> to the nearest integral value.
+round(<u>number<u>, <u>digits<u>): rounds a <u>number<u> to a specified number of fractional <u>digits<u>.
+sign(<u>number<u>): returns a value indicating the sign of a <u>number<u>.
+sin(<u>angle<u>): returns the sine of the specified <u>angle<u>.
+sinh(<u>angle<u>): returns the hyperbolic sine of the specified <u>angle<u>.
+sqrt(<u>number<u>): returns the square root of a specified <u>number<u>.
+sum(<u>numbers<u>): returns the sum of a series of <u>numbers<u>.
+tan(<u>angle<u>): returns the tangent of the specified <u>angle<u>.
+tanh(<u>angle<u>): returns the hyperbolic tangent of the specified <u>angle<u>.
+truncate(<u>number<u>): calculates the integral part of a specified <u>number<u>.</web>]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="calch" functionName="CalchCommand" cmdMinLength="1" separateThread="true">
+    <HelpText><![CDATA[Shortcut for <u>calc /base 16<u>.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="timecalc" functionName="TimecalcCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: timecalc <u>expression<u> [in {<u>timezone<u> | <u>unit<u>}]
+Performs calculations based on dates, times and time intervals. All dates are UTC.
+Use " in <u>timezone<u>" to convert a date to the specified timezone, and " in <u>unit<u>" to convert a timespan to the specified unit.
+Examples:
+timecalc <u>4:30 PM - 6:01 AM<u> = <b>10 hours, 29 minutes<b>
+timecalc <u>4:13 AM + 6 hours, 12 minutes<u> = <b>March 16, 2012 10:25 AM<b>
+timecalc <u>5 hours<u> in <u>minutes<u> = <b>300 minutes<b>]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="seen" functionName="SeenCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: seen <u>user<u> [<u>channel<u>]
+Displays the specified <u>user<u>'s last action in the current or specified <u>channel<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="seen+" functionName="SeenplusCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: seen+ <u>user<u>
+Displays the specified <u>user<u>'s last action in any channel on the network.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="join" accessLevel="BotOp" functionName="JoinCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: join <u>channel<u> [<u>keyword<u>]
+Makes the bot join a specified <u>channel<u>.
+The <u>keyword<u> parameter allows the bot to join channels with mode +k set. If it has joined a keyworded channel previously, it will remember the keyword and use it automatically, without requiring the parameter.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="part" accessLevel="Admin" functionName="PartCommand">
+    <HelpText>
+      <![CDATA[Syntax: part [<u>message<u>]
+Makes the bot leave the channel, with an optional <u>message<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="tobytes" functionName="TobytesCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: tobytes <u>datatype<u> <u>data<u>
+Converts <u>data<u> to an array of bytes.
+<u>datatype<u> can be one of the following:
+Bytes - a list of byte values (00-FF) (basically does nothing)
+Byte - a byte, with range 0 to 255
+SByte - a signed byte, range -128 to 127
+Short, Int16, SWord - a signed 16-bit integer, range -32768 to 32767
+UShort, UInt16, Word - an unsigned 16-bit integer, range 0 to 65535
+Int, Int32, Integer, SDword - a signed 32-bit integer, range -2147483648 to 2147483647
+UInt, UInt32, UInteger, Dword - an unsigned 32-bit integer, range 0 to 4294967295
+Long, Int64, SQword - a signed 64-bit integer, range -9223372036854775808 to 9223372036854775807
+ULong, UInt64, Qword - an unsigned 64-bit integer, range 0 to 18446744073709551615
+Single, Float - 32-bit floating-point number
+Double - 64-bit floating-point number
+BigInt, BigInteger, Number - an arbitrarily large integer
+Base64 - a base64 string
+ASCII - an ASCII string
+UTF8, String, Text - a UTF-8 string
+Unicode, UTF16 - a UTF-16 string
+An integer - attempts to use the number as a codepage for string conversion
+Any other string - attempts to look up a string encoding by name]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="frombytes" functionName="FrombytesCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: frombytes <u>datatype<u> <u>bytes<u>
+Converts <u>bytes<u> to the specified <u>datatype<u>.
+<u>datatype<u> can be one of the following:
+Byte - a byte, with range 0 to 255
+SByte - a signed byte, range -128 to 127
+Short, Int16, SWord - a signed 16-bit integer, range -32768 to 32767
+UShort, UInt16, Word - an unsigned 16-bit integer, range 0 to 65535
+Int, Int32, Integer, SDword - a signed 32-bit integer, range -2147483648 to 2147483647
+UInt, UInt32, UInteger, Dword - an unsigned 32-bit integer, range 0 to 4294967295
+Long, Int64, SQword - a signed 64-bit integer, range -9223372036854775808 to 9223372036854775807
+ULong, UInt64, Qword - an unsigned 64-bit integer, range 0 to 18446744073709551615
+Single, Float - 32-bit floating-point number
+Double - 64-bit floating-point number
+BigInt, BigInteger, Number - an arbitrarily large integer
+Base64 - a base64 string
+ASCII - an ASCII string
+UTF8, String, Text - a UTF-8 string
+Unicode, UTF16 - a UTF-16 string
+An integer - attempts to use the number as a codepage for string conversion
+Any other string - attempts to look up a string encoding by name]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="convert" functionName="ConvertCommand" cmdMinLength="3">
+    <HelpText><![CDATA[Syntax: convert <u>intype<u> <u>outtype<u> <u>data<u>
+Converts <u>data<u> from <u>intype<u> to <u>outtype<u>.
+See tobytes and frombytes for more information.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="baseconv" functionName="BaseconvCommand" cmdMinLength="3">
+    <HelpText>
+      <![CDATA[Syntax: baseconv <u>value<u> <u>baseIn<u> <u>baseOut<u>
+Converts <u>value<u>, a number in base <u>baseIn<u>, to base <u>baseOut<u>.
+Valid bases are between 2 and 36.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="byteconv" functionName="ByteconvCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: byteconv <u>size<u> <u>unit<u>
+Converts <u>size<u> to the specified <u>unit<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="off" accessLevel="BotOp" functionName="OffCommand">
+    <HelpText><![CDATA[Disables all bot functions.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="on" accessLevel="BotOp" functionName="OnCommand">
+    <HelpText><![CDATA[Enables all bot functions.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="vardel" functionName="VardelCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: vardel <u>variable<u>
+Deletes a <u>variable<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="varget" functionName="VargetCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: varget <u>variable<u>
+Displays the value of a <u>variable<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="varlist" functionName="VarlistCommand">
+    <HelpText><![CDATA[Lists the names and values of all variables.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="varset" functionName="VarsetCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: varset <u>variable<u> <u>value<u>
+Changes the <u>value<u> of a <u>variable<u>, or creates a new <u>variable<u> with the specified <u>value<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="die" accessLevel="BotOp" functionName="DieCommand" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: die [<u>message<u>]
+Makes the bot quit.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="disconnect" accessLevel="BotOp" functionName="DisconnectCommand" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: disconnect [<u>message<u>]
+Makes the bot disconnect from the current network.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="connect" accessLevel="BotOp" functionName="ConnectCommand" cmdMinLength="1" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: connect <u>network<u>
+Makes the bot connect to the named <u>network<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="op" functionName="OpCommand">
+    <HelpText>
+      <![CDATA[Syntax: op <u>password<u> [<u>user<u>]
+Transfers BotOp access to you or the specified <u>user<u>. Only valid in a private message.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="raw" accessLevel="BotOp" functionName="RawCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: raw <u>command<u>
+Causes the bot to send a raw IRC <u>command<u> to the server.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="md5" functionName="Md5Command" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: md5 <u>datatype<u> <u>data<u>
+Calculates the MD5 hash of <u>data<u>.
+<u>datatype<u> can be one of the following:
+Bytes - a list of byte values (00-FF)
+Byte - a byte, with range 0 to 255
+SByte - a signed byte, range -128 to 127
+Short, Int16, SWord - a signed 16-bit integer, range -32768 to 32767
+UShort, UInt16, Word - an unsigned 16-bit integer, range 0 to 65535
+Int, Int32, Integer, SDword - a signed 32-bit integer, range -2147483648 to 2147483647
+UInt, UInt32, UInteger, Dword - an unsigned 32-bit integer, range 0 to 4294967295
+Long, Int64, SQword - a signed 64-bit integer, range -9223372036854775808 to 9223372036854775807
+ULong, UInt64, Qword - an unsigned 64-bit integer, range 0 to 18446744073709551615
+Single, Float - 32-bit floating-point number
+Double - 64-bit floating-point number
+BigInt, BigInteger, Number - an arbitrarily large integer
+Base64 - a base64 string
+ASCII - an ASCII string
+UTF8, String, Text - a UTF-8 string
+Unicode, UTF16 - a UTF-16 string
+An integer - attempts to use the number as a codepage for string conversion
+Any other string - attempts to look up a string encoding by name]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="sha1" functionName="Sha1Command" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: sha1 <u>datatype<u> <u>data<u>
+Calculates the SHA-1 hash of <u>data<u>.
+<u>datatype<u> can be one of the following:
+Bytes - a list of byte values (00-FF)
+Byte - a byte, with range 0 to 255
+SByte - a signed byte, range -128 to 127
+Short, Int16, SWord - a signed 16-bit integer, range -32768 to 32767
+UShort, UInt16, Word - an unsigned 16-bit integer, range 0 to 65535
+Int, Int32, Integer, SDword - a signed 32-bit integer, range -2147483648 to 2147483647
+UInt, UInt32, UInteger, Dword - an unsigned 32-bit integer, range 0 to 4294967295
+Long, Int64, SQword - a signed 64-bit integer, range -9223372036854775808 to 9223372036854775807
+ULong, UInt64, Qword - an unsigned 64-bit integer, range 0 to 18446744073709551615
+Single, Float - 32-bit floating-point number
+Double - 64-bit floating-point number
+BigInt, BigInteger, Number - an arbitrarily large integer
+Base64 - a base64 string
+ASCII - an ASCII string
+UTF8, String, Text - a UTF-8 string
+Unicode, UTF16 - a UTF-16 string
+An integer - attempts to use the number as a codepage for string conversion
+Any other string - attempts to look up a string encoding by name]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="sha256" functionName="Sha256Command" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: sha256 <u>datatype<u> <u>data<u>
+Calculates the SHA-256 hash of <u>data<u>.
+<u>datatype<u> can be one of the following:
+Bytes - a list of byte values (00-FF)
+Byte - a byte, with range 0 to 255
+SByte - a signed byte, range -128 to 127
+Short, Int16, SWord - a signed 16-bit integer, range -32768 to 32767
+UShort, UInt16, Word - an unsigned 16-bit integer, range 0 to 65535
+Int, Int32, Integer, SDword - a signed 32-bit integer, range -2147483648 to 2147483647
+UInt, UInt32, UInteger, Dword - an unsigned 32-bit integer, range 0 to 4294967295
+Long, Int64, SQword - a signed 64-bit integer, range -9223372036854775808 to 9223372036854775807
+ULong, UInt64, Qword - an unsigned 64-bit integer, range 0 to 18446744073709551615
+Single, Float - 32-bit floating-point number
+Double - 64-bit floating-point number
+BigInt, BigInteger, Number - an arbitrarily large integer
+Base64 - a base64 string
+ASCII - an ASCII string
+UTF8, String, Text - a UTF-8 string
+Unicode, UTF16 - a UTF-16 string
+An integer - attempts to use the number as a codepage for string conversion
+Any other string - attempts to look up a string encoding by name]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="greetings" functionName="GreetingsCommand">
+    <HelpText>
+      <![CDATA[Syntax: greetings
+Tells you if greetings are enabled for the current channel.
+Syntax: greetings {off | on}
+Sets greetings on or off for the current channel. BotOp access required.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="kickme" functionName="KickmeCommand">
+    <HelpText>
+      <![CDATA[Syntax: kickme [<u>message<u>]
+Kicks you from the current channel, with an optional <u>message<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="removeme" functionName="RemovemeCommand">
+    <HelpText>
+      <![CDATA[Syntax: removeme [<u>message<u>]
+Removes you from the current channel, with an optional <u>message<u>.
+Not all servers support the REMOVE command.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="ping" functionName="PingCommand">
+    <HelpText><![CDATA[Sends you a CTCP PING, and tells you how long it takes to receive a response.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="pingme" functionName="PingCommand">
+    <HelpText><![CDATA[Sends you a CTCP PING, and tells you how long it takes to receive a response.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="mode" functionName="ModeCommand">
+    <HelpText><![CDATA[Displays your current mode in the channel.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="8ball" functionName="EightballCommand">
+    <HelpText><![CDATA[Shakes the magic 8-ball and displays its message.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="cueball" functionName="CueballCommand">
+    <HelpText><![CDATA[Shakes the magic cue ball.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="action" accessLevel="BotOp" functionName="ActionCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: action <u>channel<u> <u>action<u>
+Makes the bot perform an <u>action<u> on the specified <u>channel<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="cycle" accessLevel="BotOp" functionName="CycleCommand">
+    <HelpText>
+      <![CDATA[Syntax: cycle [<u>channel<u>]
+Makes the bot part and rejoin the current channel or the specified <u>channel<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="greeting" functionName="GreetingCommand">
+    <HelpText>
+      <![CDATA[Syntax: greeting [{<u>message<u> | off}]
+Displays your greeting message, disables it (off), or sets it to <u>message<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="setgreeting" accessLevel="BotOp" functionName="GreetingCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: setgreeting <u>user<u> [{<u>message<u> | off}]
+Displays the specified user's greeting message, disables it (off), or sets it to <u>message<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="note" functionName="NoteCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: note [/noaliases] [/joinonly] [/textonly] <u>user<u> <u>messsage<u>
+Leaves a note for <u>user<u> which will display the <u>message<u> when they next enter the channel or speak.
+Use /noaliases to leave a message for a specific nick rather than a nick group.
+Use /joinonly to only display the message when the user next joins, or /textonly to only display the message when the user next speaks.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="notelist" functionName="NotelistCommand">
+    <HelpText><![CDATA[Displays a list of the notes you have sent on the current channel.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="delnote" functionName="DelnoteCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: delnote <u>id<u>
+Deletes the note with the specified <u>id<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="stats" functionName="StatsCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: stats <u>user<u> [<u>channel<u>]
+Displays statistics for <u>user<u> on the current or specified <u>channel<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="game" accessLevel="BotOp" functionName="GameCommand">
+    <HelpText>
+      <![CDATA[Displays the game you are playing.
+Supported games:
+Sonic Adventure DX
+Sonic & Knuckles Collection
+Sonic R
+Half-life 2 and mods
+Portal 2
+Streets of Rage Remake
+Gens emulator]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="drive" accessLevel="BotOp" functionName="DriveCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: drive <u>name<u>
+Displays information about the drive with the specified <u>name<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="screen" accessLevel="BotOp" functionName="ScreenCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: screen <u>number<u>
+Displays information about the screen with the given <u>number<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="computer" accessLevel="BotOp" functionName="ComputerCommand">
+    <HelpText><![CDATA[Displays information about your computer.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="translatemsgs" accessLevel="BotOp" functionName="TranslatemsgsCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: translatemsgs <u>list<u>
+Changes the translation list for all messages.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="translate" functionName="TranslateCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: translate <u>list<u> <u>message<u>
+Translates <u>message<u> with the given <u>list<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="translatecmd" functionName="TranslatecmdCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: translate <u>list<u> <u>command<u>
+Translates the result of <u>command<u> with the given <u>list<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="dns" functionName="DnsCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: dns {<u>hostname<u> | <u>ip<u>}
+Retrieves a list of IP addresses assigned to <u>hostname<u> or the hostname assigned to <u>ip<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="ident" accessLevel="BotOp" functionName="IdentCommand">
+    <HelpText><![CDATA[Makes the bot identify with NickServ.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="say" accessLevel="BotOp" functionName="SayCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: say <u>message<u>
+Makes the bot say the <u>message<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="msg" accessLevel="BotOp" functionName="MsgCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: msg {<u>channel<u> | <u>user<u>} <u>message<u>
+Makes the bot send a message to the <u>channel<u> or <u>user<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="choose" functionName="ChooseCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: choose <u>item1<u> [<u>item2<u> <u>itemN<u>]
+Selects a random item from the list. Use quotes for values with spaces in them.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="process" accessLevel="BotOp" functionName="ProcessCommand">
+    <HelpText>
+      <![CDATA[Syntax: process [<u>name<u>]
+Returns information about all processes with the specified <u>name<u>, or the bot's process.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="uptime" functionName="UptimeCommand">
+    <HelpText><![CDATA[Displays the current system and bot uptime.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="asmx86" functionName="Asmx86Command" cmdMinLength="1" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: asmx86 <u>instruction<u>
+Assembles the x86 <u>instruction<u>, and displays its hex code.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="combinealiases" accessLevel="BotOp" functionName="CombinealiasesCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: combinealiases <u>user1<u> [<u>user2<u> <u>userN<u>] <u>primaryuser<u>
+Combines the aliases for each user into the <u>primaryuser<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="combinestats" accessLevel="BotOp" functionName="CombinealiasesCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: combinestats <u>user1<u> [<u>user2<u> <u>userN<u>] <u>primaryuser<u>
+Combines the aliases for each user into the <u>primaryuser<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="delstats" accessLevel="BotOp" functionName="DelstatsCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: delstats <u>user<u>
+Deletes the statistics for <u>user<u> on the current channel.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="aliases" functionName="AliasesCommand">
+    <HelpText>
+      <![CDATA[Syntax: aliases [<u>nickname<u>]
+Lists all known aliases of <u>nickname<u>, or your nickname.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="addalias" accessLevel="BotOp" functionName="AddaliasCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: addalias <u>nickname<u> <u>alias1<u> [<u>alias2<u> <u>aliasN<u>]
+Adds the specified alias(es) to the <u>nickname<u>'s alias list.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="delalias" accessLevel="BotOp" functionName="DelaliasCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: delalias <u>nickname<u> <u>alias1<u> [<u>alias2<u> <u>aliasN<u>]
+Deletes the specified alias(es) from the <u>nickname<u>'s alias list.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="splitaliases" accessLevel="BotOp" functionName="SplitaliasesCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: splitaliases <u>nickname<u> <u>alias1<u> [<u>alias2<u> <u>aliasN<u>]
+Moves the specified alias(es) from the <u>nickname<u>'s alias list into a new list.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="movealiases" accessLevel="BotOp" functionName="MovealiasesCommand" cmdMinLength="2">
+    <HelpText>
+      <![CDATA[Syntax: combinealiases <u>alias1<u> [<u>alias2<u> <u>aliasN<u>] <u>destination<u>
+Moves the specified alias(es) into the <u>destination<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="remindme" functionName="RemindmeCommand" cmdMinLength="4">
+    <HelpText>
+      <![CDATA[Syntax: remindme {in <u>timespan<u> | at <u>datetime<u>} that <u>message<u>
+Creates a reminder which will notify you with the <u>message<u> either at the specified <u>datetime<u> or in <u>timespan<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="vb" accessLevel="BotOp" functionName="VbCommand" cmdMinLength="1" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: vb <u>code<u>
+Compiles and runs the VB.NET <u>code<u>. The provided code must end with a return statement.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="c#" accessLevel="BotOp" functionName="CsharpCommand" cmdMinLength="1" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: c# [/unsafe] <u>code<u>
+Compiles and runs the C# <u>code<u>. The provided code must end with a return statement. Use /unsafe to enable unsafe code.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="stacktrace" accessLevel="BotOp" functionName="StacktraceCommand">
+    <HelpText><![CDATA[Displays the stack trace for the most recent Exception.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="lag" accessLevel="BotOp" functionName="LagCommand">
+    <HelpText><![CDATA[Sends a PING to the server. When it replies, the bot will message you the delay between sending and receiving.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="cmdchar" accessLevel="BotOp" functionName="CmdcharCommand">
+    <HelpText>
+      <![CDATA[Syntax: cmdchar [<u>character<u>]
+Either sets the command character to <u>character<u> or displays the current command character.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="exec" accessLevel="BotOp" functionName="ExecCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: exec <u>process<u> [<u>arguments<u>]
+Executes the process, redirecting standard output and standard error to the channel.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="mkick" accessLevel="Halfop" functionName="MkickCommand">
+    <HelpText><![CDATA[Kicks everyone in the channel with lower or equal power to you.]]></HelpText>
+  </BotCommand>
+  <BotCommand name="allchan" accessLevel="BotOp" functionName="AllchanCommand" cmdMinLength="1" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: allchan <u>command<u>
+Executes <u>command<u> on every channel in the current network. Use <chan> to stand in for the channel the command will be running on.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="alluser" accessLevel="BotOp" functionName="AlluserCommand" cmdMinLength="1" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: allchan <u>command<u>
+Executes <u>command<u> for every user in the current channel. Use <user> to stand in for the user the command will be running on.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="for" accessLevel="BotOp" functionName="ForCommand" cmdMinLength="4" separateThread="true">
+    <HelpText>
+      <![CDATA[Syntax: for <u>start<u> to <u>end<u> [step <u>step<u>] <u>command<u>
+Executes <u>command<u> for every number between <u>start<u> and <u>end<u>, incrementing by <u>step<u> (default 1). Use <loop> to stand in for the loop number.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="urldecode" functionName="UrldecodeCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: urldecode <u>text<u>
+Decodes URL-encoded <u>text<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="urlencode" functionName="UrlencodeCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: urlencode <u>text<u>
+URL-encodes <u>text<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="htmldecode" functionName="HtmldecodeCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: htmldecode <u>text<u>
+Decodes HTML-encoded <u>text<u>.]]>
+    </HelpText>
+  </BotCommand>
+  <BotCommand name="htmlencode" functionName="HtmlencodeCommand" cmdMinLength="1">
+    <HelpText>
+      <![CDATA[Syntax: htmlencode <u>text<u>
+HTML-encodes <u>text<u>.]]>
+    </HelpText>
+  </BotCommand>
+</CommandList>

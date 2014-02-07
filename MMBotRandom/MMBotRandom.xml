@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BotModule xmlns="http://localhost" className="MMBotRandom.RandomModule" name="Random">
+  <CommandList>
+    <BotCommand name="random" functionName="RandomCommand">
+      <HelpText><![CDATA[Displays the status of random responses.]]></HelpText>
+      <BotCommand name="on" functionName="RandomOnCommand" accessLevel="Admin">
+        <HelpText><![CDATA[Enables random responses.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="off" functionName="RandomOffCommand" accessLevel="Admin">
+        <HelpText><![CDATA[Disables random responses.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="mode" functionName="RandomModeCommand">
+        <HelpText>
+          <![CDATA[Syntax: random mode
+Displays the current quote generation/selection mode.
+Syntax: random mode <u>mode<u>
+Changes the mode. Requires BotOp access.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="list" functionName="RandomListCommand" separateThread="true">
+        <HelpText>
+          <![CDATA[Syntax: random list
+Displays the current quote list.
+Syntax: random list <u>list<u>
+Changes the list. Requires BotOp access.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="asplode" functionName="RandomAsplodeCommand" accessLevel="BotOp">
+        <HelpText><![CDATA[]]></HelpText>
+      </BotCommand>
+      <BotCommand name="unasplode" functionName="RandomUnasplodeCommand" accessLevel="BotOp">
+        <HelpText><![CDATA[]]></HelpText>
+      </BotCommand>
+      <BotCommand name="prob" functionName="RandomProbCommand">
+        <HelpText>
+          <![CDATA[Syntax: random prob
+Displays the current probability of random responses.
+Syntax: random prob <u>probability<u>
+Changes the probability. Requires Admin access.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="timer" functionName="RandomTimerCommand">
+        <HelpText><![CDATA[Displays the state of the random quote timer.]]></HelpText>
+        <BotCommand name="on" functionName="RandomTimerOnCommand" accessLevel="Admin">
+          <HelpText><![CDATA[Starts the random quote timer.]]></HelpText>
+        </BotCommand>
+        <BotCommand name="off" functionName="RandomTimerOffCommand" accessLevel="Admin">
+          <HelpText><![CDATA[Stops the random quote timer.]]></HelpText>
+        </BotCommand>
+      </BotCommand>
+      <BotCommand name="time" functionName="RandomTimeCommand">
+        <HelpText>
+          <![CDATA[Syntax: random time
+Displays the current maximum interval between random responses.
+Syntax: random time <u>TimeSpan<u>
+Sets the maximum time between responses. Requires Admin access.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="find" functionName="RandomFindCommand" cmdMinLength="1" separateThread="true">
+        <HelpText>
+          <![CDATA[Syntax: random find <u>pattern<u>
+Searches for quotes that match the given <u>pattern<u>.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="quote" functionName="RandomQuoteCommand">
+        <HelpText>
+          <![CDATA[Syntax: random quote
+Displays a random quote from the loaded lists.
+Syntax: random quote <u>number<u>
+Displays the quote with the specified <u>number<u>. Specify <u>last<u> to display the previously selected quote.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="markov" functionName="RandomMarkovCommand">
+        <HelpText><![CDATA[Generates a line of text using a Markov chain.]]></HelpText>
+        <BotCommand name="level" functionName="RandomMarkovLevelCommand">
+          <HelpText>
+            <![CDATA[Syntax: random markov level
+Displays the markov level.
+Syntax: random markov level <u>level<u>
+Sets the markov level. Requires BotOp access.]]>
+          </HelpText>
+        </BotCommand>
+      </BotCommand>
+      <BotCommand name="quote+" functionName="Quoteplus" cmdMinLength="1">
+        <HelpText>
+          <![CDATA[Syntax: random quote+ <u>message<u>
+Displays a random quote that contains one of the words in <u>message<u>.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="quote++" functionName="Quoteplusplus" cmdMinLength="1">
+        <HelpText>
+          <![CDATA[Syntax: random quote++ <u>message<u>
+Displays a quote that contains the most words in <u>message<u>.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="quote-" functionName="Quoteminus" cmdMinLength="1">
+        <HelpText>
+          <![CDATA[Syntax: random quote- <u>message<u>
+Displays a random quote that does not contain one of the words in <u>message<u>.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="quote--" functionName="Quoteminusminus" cmdMinLength="1">
+        <HelpText>
+          <![CDATA[Syntax: random quote-- <u>message<u>
+Displays a quote that contains the least words in <u>message<u>.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="quotes" functionName="RandomQuotesCommand">
+        <HelpText><![CDATA[Displays the number of quotes currently loaded.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="kick" functionName="RandomKickCommand" accessLevel="Halfop">
+        <HelpText><![CDATA[Kicks a random user from the channel. This command will fail if either you or the bot do not have access to kick anyone in the channel.]]></HelpText>
+      </BotCommand>
+    </BotCommand>
+  </CommandList>
+</BotModule>

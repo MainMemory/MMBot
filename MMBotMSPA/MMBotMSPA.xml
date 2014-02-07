@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BotModule xmlns="http://localhost" className="MMBotMSPA.MSPAModule" name="MSPA">
+  <CommandList>
+    <BotCommand name="sburbgen" functionName="SburbgenCommand">
+      <HelpText><![CDATA[Generates SBURB player info.]]></HelpText>
+    </BotCommand>
+    <BotCommand name="chumhandle" functionName="ChumhandleCommand">
+      <HelpText>
+        <![CDATA[Syntax: chumhandle [/canon]
+Generates a random chumHandle.
+Use the /canon switch to include only parts from canon handles.]]>
+      </HelpText>
+    </BotCommand>
+    <BotCommand name="ship" functionName="ShipCommand">
+      <HelpText>
+        <![CDATA[Syntax: ship [{/hearts | /spades | /diamonds | /clubs}] [/users] [/hs] [/ps] [/mlp] [/sonic] [<u>names<u>]
+Generates a random ship.
+Use /hearts, /spades, /diamonds or /clubs to force a specific type of ship, otherwise it's random.
+Use /users to include the names of all users in the current channel.
+Use /hs to include the names of characters from Homestuck.
+Use /ps to include the names of characters from Problem Sleuth.
+Use /ps to include the names of characters from My Little Pony.
+Use /ps to include the names of characters from Sonic the Hedgehog.
+You can also use a space-separated list of <u>names<u>, with quotes around multi-word names.
+Without arguments, it has the same behavior as <u>ship /users<u>.
+
+Examples:
+ship <u>/hs<u> = <b>Rose Lalonde <c=04>♥<c> Kanaya Maryam<b>
+ship <u>/diamonds "Andrew Hussie" "Ryan North"<u> = <b>Andrew Hussie <c=04>♦<c> Ryan North<b>]]>
+      </HelpText>
+    </BotCommand>
+  </CommandList>
+</BotModule>

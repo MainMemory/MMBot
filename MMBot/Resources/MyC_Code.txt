@@ -1,0 +1,15 @@
+using System;
+using MMBot;
+
+public class MMBotCodeClass
+{
+	private static bool isRunning = false;
+	public static /*unsafe*/ object CustomCode(IRC network, IRCChannel channel)
+	{
+		if (isRunning)
+			return null;
+		isRunning = true;
+//CODE GOES HERE;
+		return "Done";
+	}
+}

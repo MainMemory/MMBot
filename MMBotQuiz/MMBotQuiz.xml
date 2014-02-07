@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BotModule xmlns="http://localhost" className="MMBotQuiz.QuizModule" name="Quiz">
+  <CommandList>
+    <BotCommand name="quiz" functionName="null" cmdMinLength="-1">
+      <HelpText><![CDATA[A quiz from Earthworm Jim 2.]]></HelpText>
+      <BotCommand name="question" functionName="QuizQuestionCommand">
+        <HelpText><![CDATA[Gets a new question.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="a" functionName="QuizACommand">
+        <HelpText><![CDATA[Chooses answer A.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="b" functionName="QuizBCommand">
+        <HelpText><![CDATA[Chooses answer B.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="c" functionName="QuizCCommand">
+        <HelpText><![CDATA[Chooses answer C.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="score" functionName="QuizScoreCommand">
+        <HelpText><![CDATA[Displays your score.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="top" functionName="QuizTopCommand">
+        <HelpText>
+          <![CDATA[Syntax: quiz top [<u>number<u>]
+Lists the top <u>number<u> (default 5) scores.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="bottom" functionName="QuizBottomCommand">
+        <HelpText>
+          <![CDATA[Syntax: quiz bottom [<u>number<u>]
+Lists the ottom <u>number<u> (default 5) scores.]]>
+        </HelpText>
+      </BotCommand>
+    </BotCommand>
+  </CommandList>
+</BotModule>

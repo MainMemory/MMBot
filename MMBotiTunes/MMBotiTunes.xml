@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BotModule xmlns="http://localhost" name="iTunes" className="MMBotiTunes.iTunesModule">
+  <CommandList>
+    <BotCommand name="itunes" accessLevel="BotOp" functionName="ItunesCommand" separateThread="true">
+      <HelpText><![CDATA[Displays the song you are listening to in iTunes.]]></HelpText>
+      <BotCommand name="playlist" accessLevel="BotOp" functionName="ItunesPlaylistCommand" separateThread="true">
+        <HelpText><![CDATA[Displays the playlist you are listening to in iTunes.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="play" accessLevel="BotOp" functionName="ItunesPlayCommand" separateThread="true">
+        <HelpText><![CDATA[Causes iTunes to start playing.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="stop" accessLevel="BotOp" functionName="ItunesStopCommand" separateThread="true">
+        <HelpText><![CDATA[Causes iTunes to stop playing.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="next" accessLevel="BotOp" functionName="ItunesNextCommand" separateThread="true">
+        <HelpText><![CDATA[Causes iTunes to play the next track.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="prev" accessLevel="BotOp" functionName="ItunesPrevCommand" separateThread="true">
+        <HelpText><![CDATA[Causes iTunes to play the previous track.]]></HelpText>
+      </BotCommand>
+    </BotCommand>
+  </CommandList>
+</BotModule>

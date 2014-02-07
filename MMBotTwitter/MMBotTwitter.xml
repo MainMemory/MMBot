@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BotModule xmlns="http://localhost" className="MMBotTwitter.TwitterModule" name="Twitter">
+  <CommandList>
+    <BotCommand name="twitter" functionName="TwitterCommand" accessLevel="Normal" cmdMinLength="1">
+      <HelpText>
+        <![CDATA[Syntax: twitter {<u>screenname<u> | <u>tweetid<u>}
+Displays the tweet with the specified <u>tweetid<u> or the most recent tweet by the user with the specified <u>screenname<u>.]]>
+      </HelpText>
+      <BotCommand name="add" functionName="TwitterAddCommand" accessLevel="Admin" cmdMinLength="1">
+        <HelpText>
+          <![CDATA[Syntax: twitter add {<u>screenname<u> | <u>id<u>}
+Adds the Twitter user with the specified <u>screenname<u> or <u>id<u> to the feed list.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="del" functionName="TwitterDelCommand" accessLevel="Admin" cmdMinLength="1">
+        <HelpText>
+          <![CDATA[Syntax: twitter del {<u>screenname<u> | <u>id<u>}
+Deletes the Twitter user with the specified <u>screenname<u> or <u>id<u> from the feed list.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="format" functionName="TwitterFormatCommand" accessLevel="Admin">
+        <HelpText>
+          <![CDATA[Syntax: twitter format [<u>format<u>]
+Displays or sets the current channel's tweet format.
+See https://linqtotwitter.codeplex.com/wikipage?title=Status%20Entity for items allowed in the format string.]]>
+        </HelpText>
+      </BotCommand>
+    </BotCommand>
+  </CommandList>
+</BotModule>

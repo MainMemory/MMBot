@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ targetNamespace="http://localhost"
+ xmlns="http://localhost"
+ elementFormDefault="qualified">
+  <xs:element name="BotModule">
+    <xs:complexType>
+      <xs:sequence maxOccurs="1">
+        <xs:element name="CommandList" type="CommandList" />
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" />
+      <xs:attribute name="className" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommandList" type="CommandList" />
+  <xs:complexType name="CommandList">
+    <xs:sequence>
+      <xs:element name="BotCommand" type="BotCommand" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BotCommand">
+    <xs:sequence maxOccurs="1">
+      <xs:element name="HelpText" type="xs:string" />
+      <xs:element name="BotCommand" type="BotCommand" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="accessLevel" type="AccessLevel" />
+    <xs:attribute name="functionName" type="xs:NCName" use="required" />
+    <xs:attribute name="cmdMinLength" type="xs:int" />
+    <xs:attribute name="separateThread" type="xs:boolean" default="false" />
+  </xs:complexType>
+  <xs:simpleType name="AccessLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="Voice" />
+      <xs:enumeration value="Halfop" />
+      <xs:enumeration value="Operator" />
+      <xs:enumeration value="Admin" />
+      <xs:enumeration value="Owner" />
+      <xs:enumeration value="BotOp" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

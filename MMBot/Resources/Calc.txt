@@ -1,0 +1,345 @@
+[assembly:System.Security.SecurityTransparent()]
+public class MMBotCodeClass
+{
+    private static bool isRunning = false;
+    public const double e = System.Math.E;
+    public const double pi = System.Math.PI;
+    public static decimal abs(decimal value) { return System.Math.Abs(value); }
+    public static double abs(double value) { return System.Math.Abs(value); }
+    public static short abs(short value) { return System.Math.Abs(value); }
+    public static int abs(int value) { return System.Math.Abs(value); }
+    public static long abs(long value) { return System.Math.Abs(value); }
+    public static sbyte abs(sbyte value) { return System.Math.Abs(value); }
+    public static float abs(float value) { return System.Math.Abs(value); }
+    public static double acos(double d) { return System.Math.Acos(d); }
+    public static double asin(double d) { return System.Math.Asin(d); }
+    public static double atan(double d) { return System.Math.Atan(d); }
+    public static double atan2(double y, double x) { return System.Math.Atan2(y, x); }
+    public static long bigMul(int a, int b) { return System.Math.BigMul(a, b); }
+    public static decimal ceiling(decimal d) { return System.Math.Ceiling(d); }
+    public static double ceiling(double a) { return System.Math.Ceiling(a); }
+    public static double cos(double d) { return System.Math.Cos(d); }
+    public static double cosh(double value) { return System.Math.Cosh(value); }
+    public static double exp(double d) { return System.Math.Exp(d); }
+    public static decimal floor(decimal d) { return System.Math.Floor(d); }
+    public static double floor(double d) { return System.Math.Floor(d); }
+    public static double ieeeremainder(double x, double y) { return System.Math.IEEERemainder(x, y); }
+    public static double ln(double d) { return System.Math.Log(d); }
+    public static double log(double a, double newBase) { return System.Math.Log(a, newBase); }
+    public static double log(double d) { return System.Math.Log10(d); }
+    static double avg<T>(params T[] collection) where T : System.IConvertible { return avg((System.Collections.Generic.IEnumerable<T>)collection); }
+    static double avg<T>(System.Collections.Generic.IEnumerable<T> collection)
+        where T : System.IConvertible
+    {
+        double num = 0.0;
+        long num2 = 0L;
+        foreach (System.IConvertible num3 in collection)
+        {
+            num += num3.ToDouble(System.Globalization.NumberFormatInfo.InvariantInfo);
+            checked { num2++; }
+        }
+        return num / (double)num2;
+    }
+    static double max(params double[] values)
+    {
+        double result = values[0];
+        foreach (double value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static float max(params float[] values)
+    {
+        float result = values[0];
+        foreach (float value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static decimal max(params decimal[] values)
+    {
+        decimal result = values[0];
+        foreach (decimal value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static byte max(params byte[] values)
+    {
+        byte result = values[0];
+        foreach (byte value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static sbyte max(params sbyte[] values)
+    {
+        sbyte result = values[0];
+        foreach (sbyte value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static ushort max(params ushort[] values)
+    {
+        ushort result = values[0];
+        foreach (ushort value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static short max(params short[] values)
+    {
+        short result = values[0];
+        foreach (short value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static uint max(params uint[] values)
+    {
+        uint result = values[0];
+        foreach (uint value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static int max(params int[] values)
+    {
+        int result = values[0];
+        foreach (int value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static ulong max(params ulong[] values)
+    {
+        ulong result = values[0];
+        foreach (ulong value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static long max(params long[] values)
+    {
+        long result = values[0];
+        foreach (long value in values)
+            result = value < result ? result : value;
+        return result;
+    }
+    static double min(params double[] values)
+    {
+        double result = values[0];
+        foreach (double value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static float min(params float[] values)
+    {
+        float result = values[0];
+        foreach (float value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static decimal min(params decimal[] values)
+    {
+        decimal result = values[0];
+        foreach (decimal value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static byte min(params byte[] values)
+    {
+        byte result = values[0];
+        foreach (byte value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static sbyte min(params sbyte[] values)
+    {
+        sbyte result = values[0];
+        foreach (sbyte value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static ushort min(params ushort[] values)
+    {
+        ushort result = values[0];
+        foreach (ushort value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static short min(params short[] values)
+    {
+        short result = values[0];
+        foreach (short value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static uint min(params uint[] values)
+    {
+        uint result = values[0];
+        foreach (uint value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static int min(params int[] values)
+    {
+        int result = values[0];
+        foreach (int value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static ulong min(params ulong[] values)
+    {
+        ulong result = values[0];
+        foreach (ulong value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static long min(params long[] values)
+    {
+        long result = values[0];
+        foreach (long value in values)
+            result = value > result ? result : value;
+        return result;
+    }
+    static double sum(params double[] values)
+    {
+        double result = 0;
+        foreach (double value in values)
+            result += value;
+        return result;
+    }
+    static float sum(params float[] values)
+    {
+        float result = 0;
+        foreach (float value in values)
+            result += value;
+        return result;
+    }
+    static decimal sum(params decimal[] values)
+    {
+        decimal result = 0;
+        foreach (decimal value in values)
+            result += value;
+        return result;
+    }
+    static byte sum(params byte[] values)
+    {
+        byte result = 0;
+        foreach (byte value in values)
+            result += value;
+        return result;
+    }
+    static sbyte sum(params sbyte[] values)
+    {
+        sbyte result = 0;
+        foreach (sbyte value in values)
+            result += value;
+        return result;
+    }
+    static ushort sum(params ushort[] values)
+    {
+        ushort result = 0;
+        foreach (ushort value in values)
+            result += value;
+        return result;
+    }
+    static short sum(params short[] values)
+    {
+        short result = 0;
+        foreach (short value in values)
+            result += value;
+        return result;
+    }
+    static uint sum(params uint[] values)
+    {
+        uint result = 0;
+        foreach (uint value in values)
+            result += value;
+        return result;
+    }
+    static int sum(params int[] values)
+    {
+        int result = 0;
+        foreach (int value in values)
+            result += value;
+        return result;
+    }
+    static ulong sum(params ulong[] values)
+    {
+        ulong result = 0;
+        foreach (ulong value in values)
+            result += value;
+        return result;
+    }
+    static long sum(params long[] values)
+    {
+        long result = 0;
+        foreach (long value in values)
+            result += value;
+        return result;
+    }
+    static T[] array<T>(params T[] values) { return values; }
+    public static double pow(double x, double y) { return System.Math.Pow(x, y); }
+    public static decimal round(decimal d) { return System.Math.Round(d); }
+    public static double round(double a) { return System.Math.Round(a); }
+    public static decimal round(decimal d, int decimals) { return System.Math.Round(d, decimals); }
+    public static decimal round(decimal d, System.MidpointRounding mode) { return System.Math.Round(d, mode); }
+    public static double round(double value, int digits) { return System.Math.Round(value, digits); }
+    public static double round(double value, System.MidpointRounding mode) { return System.Math.Round(value, mode); }
+    public static decimal round(decimal d, int decimals, System.MidpointRounding mode) { return System.Math.Round(d, decimals, mode); }
+    public static double round(double value, int digits, System.MidpointRounding mode) { return System.Math.Round(value, digits, mode); }
+    public static int sign(decimal value) { return System.Math.Sign(value); }
+    public static int sign(double value) { return System.Math.Sign(value); }
+    public static int sign(short value) { return System.Math.Sign(value); }
+    public static int sign(int value) { return System.Math.Sign(value); }
+    public static int sign(long value) { return System.Math.Sign(value); }
+    public static int sign(sbyte value) { return System.Math.Sign(value); }
+    public static int sign(float value) { return System.Math.Sign(value); }
+    public static double sin(double a) { return System.Math.Sin(a); }
+    public static double sinh(double value) { return System.Math.Sinh(value); }
+    public static double sqrt(double d) { return System.Math.Sqrt(d); }
+    public static double tan(double a) { return System.Math.Tan(a); }
+    public static double tanh(double value) { return System.Math.Tanh(value); }
+    public static decimal truncate(decimal d) { return System.Math.Truncate(d); }
+    public static double truncate(double d) { return System.Math.Truncate(d); }
+    public static byte rol(byte a1, int a2) { return unchecked((byte)((a1 >> (8 - a2)) | (a1 << a2))); }
+    public static sbyte rol(sbyte a1, int a2) { return unchecked((sbyte)rol((byte)a1, a2)); }
+    public static ushort rol(ushort a1, int a2) { return unchecked((ushort)((a1 >> (16 - a2)) | (a1 << a2))); }
+    public static short rol(short a1, int a2) { return unchecked((short)rol((ushort)a1, a2)); }
+    public static uint rol(uint a1, int a2) { return unchecked((uint)((a1 >> (32 - a2)) | (a1 << a2))); }
+    public static int rol(int a1, int a2) { return unchecked((int)rol((uint)a1, a2)); }
+    public static ulong rol(ulong a1, int a2) { return unchecked((ulong)((a1 >> (64 - a2)) | (a1 << a2))); }
+    public static long rol(long a1, int a2) { return unchecked((long)rol((ulong)a1, a2)); }
+    public static byte ror(byte a1, int a2) { return unchecked((byte)((a1 << (8 - a2)) | (a1 >> a2))); }
+    public static sbyte ror(sbyte a1, int a2) { return unchecked((sbyte)ror((byte)a1, a2)); }
+    public static ushort ror(ushort a1, int a2) { return unchecked((ushort)((a1 << (16 - a2)) | (a1 >> a2))); }
+    public static short ror(short a1, int a2) { return unchecked((short)ror((ushort)a1, a2)); }
+    public static uint ror(uint a1, int a2) { return unchecked((uint)((a1 << (32 - a2)) | (a1 >> a2))); }
+    public static int ror(int a1, int a2) { return unchecked((int)ror((uint)a1, a2)); }
+    public static ulong ror(ulong a1, int a2) { return unchecked((ulong)((a1 << (64 - a2)) | (a1 >> a2))); }
+    public static long ror(long a1, int a2) { return unchecked((long)ror((ulong)a1, a2)); }
+    public static byte lsr(byte a1, int a2) { return unchecked((byte)(a1 >> a2)); }
+    public static sbyte lsr(sbyte a1, int a2) { return unchecked((sbyte)lsr((byte)a1, a2)); }
+    public static ushort lsr(ushort a1, int a2) { return unchecked((ushort)(a1 >> a2)); }
+    public static short lsr(short a1, int a2) { return unchecked((short)lsr((ushort)a1, a2)); }
+    public static uint lsr(uint a1, int a2) { return unchecked((uint)(a1 >> a2)); }
+    public static int lsr(int a1, int a2) { return unchecked((int)lsr((uint)a1, a2)); }
+    public static ulong lsr(ulong a1, int a2) { return unchecked((ulong)(a1 >> a2)); }
+    public static long lsr(long a1, int a2) { return unchecked((long)lsr((ulong)a1, a2)); }
+	public const double nan = double.NaN;
+    public const double infinity = double.PositiveInfinity;
+    public const double NaN = double.NaN;
+    public const double Infinity = double.PositiveInfinity;
+    public const double True = 1;
+    public const double False = 0;
+    public static System.Random randomgen = new System.Random();
+    public static int rand() { return randomgen.Next(); }
+    public static int rand(int maxValue) { return randomgen.Next(maxValue); }
+    public static int rand(int minValue, int maxValue) { return randomgen.Next(minValue, maxValue); }
+    public static double randf() { return randomgen.NextDouble(); }
+	//variables
+	public static object CustomCode/*uid*/()
+	{
+		if (isRunning)
+			return null;
+		isRunning = true;
+		unchecked
+		{
+		    return
+//message;
+		}
+	}
+}

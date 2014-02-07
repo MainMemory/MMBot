@@ -1,0 +1,85 @@
+body {
+    background-color: #000000;
+    background-image: url(AMY_BG.png);
+	background-attachment: fixed;
+	background-position: center center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family: Lucida Grande, Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+
+a img {border: 2px; }
+a:link { color: #FFFF88; text-decoration: none }
+a:visited { color: #FFFF88; text-decoration: none }
+a:hover { color: #FFFF88; text-decoration: underline overline }
+a:active { color: #FFFF88; text-decoration: underline overline }
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+p.left {
+    text-align: left;
+}
+
+p.center {
+    text-align: center;
+}
+
+p.right {
+    text-align: right;
+}
+
+table, tr, th, td {
+    border: 1px solid white;
+	border-collapse: collapse;
+}
+
+tr {
+    margin-left:auto;
+    margin-right:auto;
+    width: 90%
+}
+
+table.main {
+    border: 0px none;
+	border-collapse: separate;
+}
+
+tr.main {
+    border: 0px none;
+	border-collapse: separate;
+}
+
+td.menu {
+    text-align:center;
+    vertical-align: top;
+    min-width:192px;
+	border: 0px none;
+	border-collapse: separate;
+}
+
+td.body {
+    vertical-align: top;
+    text-align:left;
+	border: 0px none;
+	border-collapse: separate;
+}
+
+table.center {
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+
+td.highlight {
+	background-color: grey;
+}
+
+th.highlight {
+	background-color: grey;
+}

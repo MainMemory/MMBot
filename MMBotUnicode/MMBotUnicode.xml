@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BotModule xmlns="http://localhost" className="MMBotUnicode.UnicodeModule" name="Unicode">
+  <CommandList>
+    <BotCommand name="charinfo" functionName="CharinfoCommand">
+      <HelpText><![CDATA[Syntax: charinfo {<u>character<u> | <u>codepoint<u> | <u>name<u>}
+Prints information about the given Unicode <u>character<u> or <u>codepoint<u>, or looks up a character by <u>name<u>.]]></HelpText>
+    </BotCommand>
+  </CommandList>
+</BotModule>

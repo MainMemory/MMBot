@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BotModule xmlns="http://localhost" className="MMBotPoll.PollModule" name="Poll">
+  <CommandList>
+    <BotCommand name="poll" functionName="null" cmdMinLength="-1">
+      <HelpText><![CDATA[Commands for starting, stopping and voting in polls.]]></HelpText>
+      <BotCommand name="start" functionName="PollStartCommand" cmdMinLength="2">
+        <HelpText>
+          <![CDATA[Syntax: poll start <u>question<u> <u>answer1<u> [<u>answer2<u> ... <u>answerN<u>]
+Starts a poll on the current channel specified <u>question<u> and <u>answer<u>s. Enclose items in quotes if they have spaces in them.]]>
+        </HelpText>
+      </BotCommand>
+      <BotCommand name="progress" functionName="PollProgressCommand">
+        <HelpText><![CDATA[Displays the number of votes cast so far in the active poll on the channel.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="end" functionName="PollEndCommand">
+        <HelpText><![CDATA[Ends the active poll on the channel and displays the results.]]></HelpText>
+      </BotCommand>
+      <BotCommand name="vote" functionName="PollVoteCommand" cmdMinLength="2">
+        <HelpText>
+          <![CDATA[Syntax: poll vote <u>channel<u> <u>number<u>
+Casts a vote for the poll on the specified <u>channel<u> for the answer with the specified <u>number<u>.
+Can only be used in a private message.]]>
+        </HelpText>
+      </BotCommand>
+    </BotCommand>
+  </CommandList>
+</BotModule>

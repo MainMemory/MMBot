@@ -552,7 +552,7 @@ namespace MMBot
                 }
                 else
                 {
-					int maxlen = 510 - ("PRIVMSG " + channel + " :").Length;
+					int maxlen = 480 - ("PRIVMSG " + channel + " :").Length;
 					while (outline.Length > maxlen)
 					{
 						bool white = false;
@@ -562,6 +562,7 @@ namespace MMBot
 							{
 								tmp = tmp.Substring(0, i);
 								white = true;
+								break;
 							}
 						QueueWrite("PRIVMSG " + channel + " :" + tmp);
 						Module1.WriteOutput(name + "\\" + channel, Module1.ColorChar + "18<" + (x != null ? x.GetUser(IrcNick).GetModeChar() : "") + IrcNick + ">" + Module1.ColorChar + " " + tmp, true);
@@ -655,7 +656,7 @@ namespace MMBot
                 }
                 else
                 {
-                    int maxlen = 510 - ("PRIVMSG " + channel + " :").Length;
+                    int maxlen = 480 - ("PRIVMSG " + channel + " :").Length;
                     while (outline.Length > maxlen)
                     {
 						bool white = false;
@@ -665,6 +666,7 @@ namespace MMBot
 							{
 								tmp = tmp.Substring(0, i);
 								white = true;
+								break;
 							}
                         QueueWrite("PRIVMSG " + channel + " :" + tmp);
                         Module1.WriteOutput(name + "\\" + channel, Module1.ColorChar + "18<" + (x != null ? x.GetUser(IrcNick).GetModeChar() : "") + IrcNick + ">" + Module1.ColorChar + " " + tmp, true);

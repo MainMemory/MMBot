@@ -30,9 +30,11 @@ The files in this subfolder are required for MMBot's Web UI.
 
 The httpd (and by extension, the Web UI) is disabled by default, remove the return statement to re-enable it.
 
-**Please note that Windows Firewall must be turned off for the built-in httpd to function. Simply allowing MMBot in the Windows Firewall preferences does not work. You must also have port 80 forwarded and open.**
+**Please note that you must run the command <code>netsh http add urlacl url=http://your-hostname-here:80/ user=DOMAIN\User</code> in order for the built-in httpd to function. You must also have port 80 forwarded and open.**
 
-Also, please note that apps like Skype and TeamViewer often occupy Port 80, but also have options to turn that behaviour off.
+On some Windows versions, Windows Firewall may or may not have to be turned off for external connections to work properly. Simplying creating an exception appears to be ineffective. 
+
+**Also, please note that apps like Skype and TeamViewer often occupy Port 80, but also have options to turn that behaviour off.**
 
 #### Modules/
 All modules go into the Modules/ subfolder in MMBot's build directory.

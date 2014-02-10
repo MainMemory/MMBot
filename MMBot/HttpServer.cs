@@ -41,11 +41,7 @@ namespace MMBot
         public void Start()
         {
 			return; // Remove this return statement to enable MMBot's httpd.
-			// If you want to enable the webserver you may have to use the "netsh http add urlacl" command, or run MMBot as an administrator.
-            // Windows Firewall also must be turned off. Allowing MMBot through the firewall appears to be insufficient.
-            // Port 80 must be forwarded, and make sure that apps like Skype and TeamViewer are not occupying Port 80 (check their settings panes)
-            listener.Prefixes.Add("http://" + Hostname + ":80/");
-            listener.Prefixes.Add("http://+:80/");
+            listener.Prefixes.Add("http://" + Hostname + ":80/"); // You will have to run this command: netsh http add urlacl url=http://your-hostname-here:80/ user=DOMAIN\User
             listener.Start();
             listenThread = new Thread(Listen);
             listenThread.Start();

@@ -13,14 +13,20 @@ namespace MMBotMDHacking
         void Asm68kCommand(IRC IrcObject, string channel, string user, string command)
         {
             ChangeDirectory();
-            File.WriteAllText("tmp.asm", '\t' + command);
-            Process asm68k = Process.Start(new ProcessStartInfo("asm68k.exe", "/k /p /o ae- tmp.asm, tmp.bin") { UseShellExecute = false, CreateNoWindow = true });
-            asm68k.WaitForExit();
-            if (File.Exists("tmp.bin"))
-                IrcObject.WriteMessage(Module1.BytesToString(File.ReadAllBytes("tmp.bin")), channel);
-            else
-                IrcObject.WriteMessage("Code could not be assembled!", channel);
-            RestoreDirectory();
+            try
+            {
+                File.WriteAllText("tmp.asm", '\t' + command);
+                Process asm68k = Process.Start(new ProcessStartInfo("asm68k.exe", "/k /p /o ae- tmp.asm, tmp.bin") { UseShellExecute = false, CreateNoWindow = true });
+                asm68k.WaitForExit();
+                if (File.Exists("tmp.bin"))
+                    IrcObject.WriteMessage(Module1.BytesToString(File.ReadAllBytes("tmp.bin")), channel);
+                else
+                    IrcObject.WriteMessage("Code could not be assembled!", channel);
+            }
+            finally
+            {
+                RestoreDirectory();
+            }
         }
 
         void VdpcalcCommand(IRC IrcObject, string channel, string user, string command)

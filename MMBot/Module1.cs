@@ -1189,22 +1189,12 @@ namespace MMBot
 
         public static string BytesToString(byte[] bytes)
         {
-            string functionReturnValue = string.Empty;
-            for (int i = 0; i <= bytes.Length - 2; i++)
-            {
-                functionReturnValue += bytes[i].ToString("X").PadLeft(2, '0') + " ";
-            }
-            return functionReturnValue + bytes[bytes.Length - 1].ToString("X").PadLeft(2, '0');
+            return string.Join(" ", bytes.Select(x => x.ToString("X2")));
         }
 
         static internal string BytesToStringB(byte[] bytes)
         {
-            string functionReturnValue = string.Empty;
-            for (int i = bytes.Length - 1; i >= 1; i += -1)
-            {
-                functionReturnValue += bytes[i].ToString("X").PadLeft(2, '0') + " ";
-            }
-            return functionReturnValue + bytes[0].ToString("X").PadLeft(2, '0');
+            return string.Join(" ", bytes.Reverse().Select(x => x.ToString("X2")));
         }
 
         static internal byte[] StringToBytes(string bytes)

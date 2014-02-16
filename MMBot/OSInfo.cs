@@ -414,6 +414,12 @@ namespace CSharp411
                                                     case 1:
                                                         name__1 = "Windows 7";
                                                         break;
+                                                    case 2:
+                                                        name__1 = "Windows 8";
+                                                        break;
+                                                    case 3:
+                                                        name__1 = "Windows 8.1";
+                                                        break;
                                                 }
                                                 break;
                                             case 3:

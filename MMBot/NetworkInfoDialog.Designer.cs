@@ -110,7 +110,7 @@
             this.Name = "NetworkInfoDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Enter netowk info...";
+            this.Text = "Enter Network Info";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -40,9 +40,8 @@ namespace MMBot
 
         public void Start()
         {
-			return;
-			// If you want to enable the webserver you will have to use the "netsh http add urlacl" command, or run MMBot as an administrator.
-            listener.Prefixes.Add("http://" + Hostname + ":80/");
+			return; // Remove this return statement to enable MMBot's httpd.
+            listener.Prefixes.Add("http://" + Hostname + ":80/"); // You will have to run this command: netsh http add urlacl url=http://your-hostname-here:80/ user=DOMAIN\User
             listener.Start();
             listenThread = new Thread(Listen);
             listenThread.Start();

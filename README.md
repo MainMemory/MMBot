@@ -33,6 +33,10 @@ opname=MainMemory
 
 password=examplePassword
 ; This is where the password for an user to be recognised as a BotOp goes.
+
+banlist=
+ignorelist=
+; Banned and ignored users will appear here.
 ```
 
 4. Open `MMBot.ini` in your text editor, paste the contents below, and modify it with your information. Make sure you are using Windows (CRLF) line endings.
@@ -45,7 +49,7 @@ servers=irc.badnik.net:6697
 ; This is the host and port that MMBot will connect to. The port is optional. Specify multiple servers with spaces.
 
 favchans=#SF94
-; This is a list of channels that MMBot will automatically join. If the channel has a keyword (MODE +k), then put the keyword after the channel name, separated by a comma.
+; This is a list of channels that MMBot will automatically join. If the channel has a keyword (MODE +k), then put the keyword after the channel name, separated by a comma. Specify multiple channels with spaces.
 
 autoconnect=true
 ; If this is set to true, then MMBot will automatically connect to this network on startup.

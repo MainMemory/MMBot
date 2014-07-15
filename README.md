@@ -1,59 +1,75 @@
 MMBot
-=======
+=====
+MMBot is a modular IRC bot written in C#.
 
-MMBot is an IRC bot written in C#.
+MMBot is supported on both Windows and Linux (via Mono), but Mono support has not been tested in a while and may be buggy.
 
-Using MMBot
-------------------------
-#### global.ini
-<code>global.ini</code> belongs in MMBot's build directory and should contain the following:
+Getting up and running
+----------------------
+#### Required Tools
+* You'll need to have Visual Studio 2013 for Windows Desktop installed. You can use any 
+   **desktop** version of Visual Studio 2013, including the free Express version: [Visual Studio 2013 Express for Windows Desktop](http://www.microsoft.com/en-us/download/details.aspx?id=40787)
+* The below instructions are written for Windows platforms. If you intend to run MMBot in a Linux environment, you will need Mono. Please note that MMBot has not been tested in Mono in a *long, long time*, and things may be broken.
 
-<code>opname=MainMemory</code> This is where the BotOp's nick goes. (probably yours)
+#### Compiling MMBot
+1. Load the project into Visual Studio by double-clicking on the `MMBot.sln` file.
 
-<code>password=sonicmike2</code> This is where the password for an user to be recognised as a BotOp goes.
+2. If you wish to use the MMBotTwitter module, you will need to modify `MMBotTwitter/TwitterModule.cs` and insert your Consumer API Key obtained from [dev.twitter.com](http://dev.twitter.com/).
 
-#### MMBot.ini
-<code>MMBot.ini</code> belongs in MMBot's build directory and should contain the following:
+3. If you wish to build MMBot and all of its modules, make sure you've completed Step 2 above and then build the entire solution (Ctrl-Shift-B).
 
-<code>[BadnikNET]</code> The text inside the brackets will be treated as the network name displayed in MMBot's GUI.
+4. If you wish to choose which modules get included in your MMBot install, compile the projects separately.
 
-<code>servers=irc.badnik.net:6667</code> This is the host and port that MMBot will connect to. The port is optional. Specify multiple servers with spaces.
+#### Configuring MMBot
+1. After MMBot finishes compiling, navigate to its build directory, which is by default in `MMBot/bin/Release/`.
 
-<code>favchans=#SF94</code> This is a list of channels that MMBot will automatically join. If the channel has a keyword (MODE +k), then put the keyword after the channel name, separated by a comma.
+2. Create two INI files, `global.ini` and `MMBot.ini`.
 
-<code>autoconnect=true</code> If this is set to true, then MMBot will automatically connect to this network on startup.
+3. Open `global.ini` in your text editor, paste the contents below, and modify it with your information. Make sure you are using Windows (CRLF) line endings.
 
-<code>usessl=false</code> If this is set to true, MMBot will connect via SSL. Don't try using this if you're using Mono.
+```
+opname=MainMemory
+; This is where the BotOp's nick goes. (probably yours)
 
-#### http/
-The files in this subfolder are required for MMBot's Web UI.
+password=examplePassword
+; This is where the password for an user to be recognised as a BotOp goes.
+```
 
-The httpd (and by extension, the Web UI) is disabled by default, remove the return statement to re-enable it.
+4. Open `MMBot.ini` in your text editor, paste the contents below, and modify it with your information. Make sure you are using Windows (CRLF) line endings.
 
-**Please note that you must run the command <code>netsh http add urlacl url=http://your-hostname-here:80/ user=DOMAIN\User</code> in order for the built-in httpd to function. You must also have port 80 forwarded and open.**
+```
+[BadnikNET]
+; The text inside the brackets will be treated as the network name displayed in MMBot's GUI.
 
-On some Windows versions, Windows Firewall may or may not have to be turned off for external connections to work properly. Simplying creating an exception appears to be ineffective. 
+servers=irc.badnik.net:6697
+; This is the host and port that MMBot will connect to. The port is optional. Specify multiple servers with spaces.
 
-**Also, please note that apps like Skype and TeamViewer often occupy Port 80, but also have options to turn that behaviour off.**
+favchans=#SF94
+; This is a list of channels that MMBot will automatically join. If the channel has a keyword (MODE +k), then put the keyword after the channel name, separated by a comma.
 
-#### Modules/
-All modules go into the Modules/ subfolder in MMBot's build directory.
+autoconnect=true
+; If this is set to true, then MMBot will automatically connect to this network on startup.
 
-Each module must also have a matching XML file.
+usessl=true
+; If this is set to true, MMBot will connect via SSL. Don't try using this if you're using Mono.
+```
 
-Please note that some modules, like MMBotTwitter mentioned below, require external DLLs to be present in **MMBot's build directory**, and not the Modules/ subfolder.
+#### Configuring MMBot's httpd
+1. Run the command `netsh http add urlacl url=http://your-hostname-here:80/ user=DOMAIN\User` in a command prompt shell with administrative access.
 
-If you fail to copy the required external DLLs, the module will fail to load. **MMBot will not display exceptions during module loads.**
+2. Forward TCP Port 80 in your router settings. The instructions vary for each router - try performing a Google search for instructions pertaining to your specific network router.
 
-#### MMBotTwitter
-MMBotTwitter requires the external DLL LinqToTwitter.dll to be present in **MMBot's build directory**, and not the Modules/ subfolder.
+ - On some Windows versions, Windows Firewall may have to be turned off for external connections to work properly, depending on your system configuration. Simplying creating an exception appears to be ineffective in some cases.
 
-The build script erroneously copies it to the Modules/ subfolder as of this writing.
+ - Please note that some applications like Skype and TeamViewer often occupy Port 80, but also have options to turn that behaviour off.
 
-#### MMBotUnicode
-MMBotUnicode depends on the file "ucd.all.flat.xml" which can be acquired from http://www.unicode.org/Public/UCD/latest/ucdxml/ucd.all.flat.zip
+#### Configuring MMBot's modules
+1. Copy `DLLs/LinqToTwitter.dll` to `bin/MMBot/Release/LinqToTwitter.dll`. This is required in order for MMBotTwitter to function.
 
-**ucd.all.flat.xml belongs in the Modules/ subfolder.**
+ - If you did not compile MMBotTwitter and do not want its functionality, then you may omit this step.
 
-#### MMBotiTunes
-MMBotiTunes requires iTunes to be installed.
+ - If you fail to copy `LinqToTwitter.dll`, MMBotTwitter will silently fail to load. Please note that MMBot **does not** display any exceptions if a module fails to load.
+
+2. Download [ucd.all.flat.zip](http://www.unicode.org/Public/UCD/latest/ucdxml/ucd.all.flat.zip) and extract the file `ucd.all.flat.xml` inside it to `MMBot/bin/Release/Modules/ucd.all.flat.xml`. This is required in order for MMBotUnicode to function.
+
+3. MMBotiTunes requires iTunes in order to function. If you compiled the MMBotiTunes module, install [iTunes](http://www.apple.com/itunes/download/).

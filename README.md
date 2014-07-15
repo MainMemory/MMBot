@@ -64,7 +64,7 @@ usessl=true
  - Please note that some applications like Skype and TeamViewer often occupy Port 80, but also have options to turn that behaviour off.
 
 #### Configuring MMBot's modules
-1. Copy `DLLs/LinqToTwitter.dll` to `bin/MMBot/Release/LinqToTwitter.dll`. This is required in order for MMBotTwitter to function.
+1. Copy `DLLs/LinqToTwitter.dll` to `MMBot/bin/Release/LinqToTwitter.dll`. This is required in order for MMBotTwitter to function.
 
  - If you did not compile MMBotTwitter and do not want its functionality, then you may omit this step.
 

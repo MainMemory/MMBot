@@ -43,6 +43,8 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TwitterCredentials.cs" />
+    <Compile Include="TwitterCredentials.example.cs" />
     <Compile Include="TwitterModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

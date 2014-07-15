@@ -11,15 +11,13 @@ using Newtonsoft.Json;
 
 namespace MMBotTwitter
 {
-    public class TwitterModule : BotModule
+    public partial class TwitterModule : BotModule
     {
         ApplicationOnlyAuthorizer auth;
         TwitterContext context;
         Dictionary<string, Dictionary<string, TwitterChannelInfo>> feeds = new Dictionary<string, Dictionary<string, TwitterChannelInfo>>();
         Timer timer = new Timer(TimeSpan.FromMinutes(5).TotalMilliseconds) { AutoReset = true };
         internal static readonly string defaultformat = Module1.UnderChar + "Twitter / {User.Name}" + Module1.UnderChar + ": " + Module1.UnderChar + "{Text}" + Module1.UnderChar + " ( http://twitter.com/{User.Identifier.ScreenName}/status/{StatusID} )";
-		const string ConsumerKey = null; // The Consumer Key you get from registering an app on https://dev.twitter.com/
-		const string ConsumerSecret = null; // The Consumer Secret you get from registering the app
 
         public TwitterModule()
         {

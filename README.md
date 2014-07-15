@@ -14,7 +14,7 @@ Getting up and running
 #### Compiling MMBot
 1. Load the project into Visual Studio by double-clicking on the `MMBot.sln` file.
 
-2. If you wish to use the MMBotTwitter module, you will need to modify `MMBotTwitter/TwitterModule.cs` and insert your Consumer API Key obtained from [dev.twitter.com](http://dev.twitter.com/).
+2. If you wish to use the MMBotTwitter module, you will need to copy `MMBotTwitter/TwitterCredentials.example.cs` to `MMBotTwitter/TwitterCredentials.cs`, uncomment the two lines, and supply your Consumer API Key obtained from [dev.twitter.com](http://dev.twitter.com/).
 
 3. If you wish to build MMBot and all of its modules, make sure you've completed Step 2 above and then build the entire solution (Ctrl-Shift-B).
 

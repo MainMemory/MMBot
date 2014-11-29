@@ -27,7 +27,7 @@ Lists the top <u>number<u> (default 5) scores.]]>
       <BotCommand name="bottom" functionName="QuizBottomCommand">
         <HelpText>
           <![CDATA[Syntax: quiz bottom [<u>number<u>]
-Lists the ottom <u>number<u> (default 5) scores.]]>
+Lists the bottom <u>number<u> (default 5) scores.]]>
         </HelpText>
       </BotCommand>
     </BotCommand>
